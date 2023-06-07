@@ -2,13 +2,12 @@ import os
 import json
 from io import BytesIO
 from api  import RestApiSdk
-from dotenv import load_dotenv
+from dotenv import dotenv_values
 
 class Client:
     def __init__(self):
         self.api = RestApiSdk('base_url') 
-        load_dotenv()
-
+        self.config = dotenv_values(".env")
 
 
     def sendRequest(self):
@@ -22,6 +21,6 @@ class Client:
 
         response = self.api.post('/endpoint', data=payload, headers=headers)
 
-        # print(response)
+     
         
         return response
