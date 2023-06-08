@@ -9,9 +9,7 @@ class Client:
         
         self.config = dotenv_values(".env")
         self.api = RestApiSdk(self.config['url']) 
-        self.headers = {
-        'api_access_token': self.config['apikey']
-        }
+        self.headers = {'api_access_token': self.config['apikey']}
 
 
     def createMediaMessage(self, account_id, conversation_id, ):
